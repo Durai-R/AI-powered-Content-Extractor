@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import "./App.css";
 import UrlInputPage from "./Pages/UrlInputPage";
 import ResultTable from "./Pages/ResultTable";
+import WelcomeScreen from "./Pages/WelcomeScreen";
 
 function App() {
   const [result, setResult] = useState(null);
   const [analyzedDate, setAnalyzedDate] = useState("");
   const [analyzedUrl, setaAnalyzedUrl] = useState("");
+  const [showWelcome, setShowWelcome] = useState(true);
 
   const handleViewResult = async (resultData) => {
     setAnalyzedDate(
@@ -21,6 +23,12 @@ function App() {
     );
     setResult(resultData);
   };
+
+  if (showWelcome) {
+    return (
+      <WelcomeScreen {...{ setShowWelcome }} />
+    );
+  }
 
   return (
     <div className="w-full min-w-[70%] min-h-screen bg-gradient-to-br from-gray-50 to-blue-100 text-gray-800">
