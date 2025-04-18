@@ -13,7 +13,7 @@ const UrlInputPage = ({ handleViewResult, setResult, setaAnalyzedUrl }) => {
     setError(null);
 
     try {
-      const res = await axios.post("http://localhost:5000/analyze", {
+      const res = await axios.post("https://ai-powered-content-extractor.onrender.com/analyze", {
         url: url.trim(),
       });
       console.log("Response:", res.data);
